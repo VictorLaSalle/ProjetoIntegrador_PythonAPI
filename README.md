@@ -1,3 +1,5 @@
+description: Projeto integrador idealizado para prospecção de associados da área gastronômica
+
 # Projeto Integrador
 Projeto integrador idealizado para prospecção de supostos associados da área gastronômica para a ACCIC - Associação Comercial Industrial e Prestadora de Serviço de Capão da Canoa e Xangri-Lá
 
