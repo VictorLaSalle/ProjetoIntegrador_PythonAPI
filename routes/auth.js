@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
         data: {
             token: response
         }
-    }).then(r => response2 = r).catch(error => response2 = error)
+    }).then(r => response2 = r.data).catch(error => response2 = error)
 
     res.send(response2)
 })
