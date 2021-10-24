@@ -7,26 +7,22 @@ routes.post('/', async (req, res) => {
 
     let response = req.body.token
 
-    let responseStatus = axios({
+    axios({
         method: 'POST',
         url:'https://piauthapi.herokuapp.com/auth',
         data: {
             token: response
         }
-    }).then(r => r.data.status)
-      .catch(error => error)
-
-    if(responseStatus == 200) {
-        await googleSheetsAPI(req.body)
+    }).then(
+        r => await googleSheetsAPI(req.body)
         .then((data) => res.send(data.data)).catch(
-            function(error) {
+            (error) => {
                 res.status(500)
                 res.send(error)
             }
-        )
-    } else {
-        res.send(responseStatus)
-    }
+        ) 
+    )
+    .catch(error => error)
 })
 
 module.exports = routes
