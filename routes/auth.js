@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
         }
     }).then(r => res.send(r.data))
       .catch(error => {
-        res.status(JSON.parse(error).status)
+        res.status(error)
         res.send(error)
     })
 })
