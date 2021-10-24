@@ -1,5 +1,13 @@
 const request = require('request')
 require('../environment')
 
-module.exports = reqt = () => request.post(`${hostname}${endpointAuth}`)
 
+function setRequestOptions(b) {
+    return {
+        url: 'https://piauthapi.herokuapp.com/auth',
+        method: 'POST',
+        json: b
+    }
+}
+
+module.exports = reqt = (body) => request(setRequestOptions(body), (err, res, bdy) => bdy)

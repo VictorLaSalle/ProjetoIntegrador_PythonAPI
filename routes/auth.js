@@ -3,7 +3,9 @@ const router = express.Router()
 require('../gateway/auth')
 
 router.post('/', (req, res) => {
-    let response = reqt()
+    let token = req.body.token
+
+    let response = reqt(token)
     res.send(response)
 })
 
