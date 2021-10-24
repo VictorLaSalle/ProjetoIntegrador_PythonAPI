@@ -11,7 +11,10 @@ router.post('/', (req, res) => {
         data: {
             token: response
         }
-    }).then(r => res.send(r.data)).catch(error => res.send(error))
+    }).then(r => res.send(r.data)).catch(error => {
+        res.status(error.status)
+        res.send(error)
+    })
 })
 
 module.exports = router
