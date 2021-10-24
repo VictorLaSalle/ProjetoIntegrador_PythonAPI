@@ -13,7 +13,7 @@ function setRequestOptions(b) {
 module.exports = reqt = (body) => {
     let response
 
-    request(setRequestOptions(body), (err, res, bdy) => response = bdy)
+    request(setRequestOptions(body), (err, res, bdy) => response = res.body)
 
     return response
 }
