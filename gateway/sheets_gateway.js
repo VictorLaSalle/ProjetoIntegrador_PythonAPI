@@ -4,7 +4,7 @@ const credentials = require('../private.json')
 module.exports = async function getData(body) {
 
     const jwt = new google.Auth.JWT(
-        body.email,
+        credentials.client_email,
         null,
         body.private_key,
         ['https://www.googleapis.com/auth/spreadsheets']
