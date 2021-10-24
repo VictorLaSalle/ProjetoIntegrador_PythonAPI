@@ -10,10 +10,15 @@ function setRequestOptions(b) {
     }
 }
 
-module.exports = reqt = (body) => {
+module.exports = reqt = async (body) => {
     let response
 
-    request(setRequestOptions(body), (err, res, bdy) => response = res.body)
+    await request(setRequestOptions(body), (err, res, bdy) => {
+        response = res.body
+        console.log(err)
+        console.log(res)
+        console.log(body)
+    })
 
     return response
 }
