@@ -14,7 +14,7 @@ routes.post('/', async (req, res) => {
             token: response
         }
     }).then(
-        r => await googleSheetsAPI(req.body)
+        async r => await googleSheetsAPI(req.body)
         .then((data) => res.send(data.data)).catch(
             (error) => {
                 res.status(500)
