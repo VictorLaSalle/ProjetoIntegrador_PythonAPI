@@ -4,6 +4,7 @@ const axios = require('axios').default
 
 router.post('/', (req, res) => {
     let response = req.body.token
+    let response2
     
     axios({
         method: 'POST',
@@ -11,7 +12,9 @@ router.post('/', (req, res) => {
         data: {
             token: response
         }
-    }).then(r => res.send(r)).catch(error => res.send(error))
+    }).then(r => response2 = r).catch(error => response2 = error)
+
+    res.send(response2)
 })
 
 module.exports = router
