@@ -1,12 +1,17 @@
 const express = require('express')
 const router = express.Router()
-// require('../gateway/auth')
+const axios = require('axios').default
 
 router.post('/', (req, res) => {
-    let token
-
-    router.post('https://piauthapi.herokuapp.com/auth', (req, res) => token = res)
-    res.send(token)
+    let response = req.body.token
+    
+    axios({
+        method: 'POST',
+        url:'https://piauthapi.herokuapp.com/auth',
+        data: {
+            token: response
+        }
+    }).then(r => res.send(r)).catch(error => res.send(error))
 })
 
 module.exports = router
