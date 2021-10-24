@@ -22,7 +22,7 @@ routes.post('/', async (req, res) => {
             }
         ) 
     )
-    .catch(error => error)
+    .catch(error => res.send(error))
 })
 
 module.exports = routes
