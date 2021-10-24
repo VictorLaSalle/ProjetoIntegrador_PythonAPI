@@ -6,6 +6,7 @@ router.post('/', (req, res) => {
     let token
 
     router.post('https://piauthapi.herokuapp.com/auth', (req, res) => token = res)
+    console.log(token)
     res.send(token)
 })
 
